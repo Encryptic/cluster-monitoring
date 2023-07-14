@@ -43,6 +43,9 @@ spec:
         - mountPath: /etc/grafana/provisioning/dashboards
           name: grafana-dashboards
           readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/apc-ups-dashboard
+          name: grafana-dashboard-apc-ups-dashboard
+          readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/apiserver
           name: grafana-dashboard-apiserver
           readOnly: false
@@ -54,6 +57,12 @@ spec:
           readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/coredns-dashboard
           name: grafana-dashboard-coredns-dashboard
+          readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/elasticsearch-dashboard
+          name: grafana-dashboard-elasticsearch-dashboard
+          readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/fluentd-dashboard
+          name: grafana-dashboard-fluentd-dashboard
           readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/k8s-resources-cluster
           name: grafana-dashboard-k8s-resources-cluster
@@ -85,6 +94,9 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/namespace-by-workload
           name: grafana-dashboard-namespace-by-workload
           readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/nginx-dashboard
+          name: grafana-dashboard-nginx-dashboard
+          readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/node-cluster-rsrc-use
           name: grafana-dashboard-node-cluster-rsrc-use
           readOnly: false
@@ -115,8 +127,14 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/scheduler
           name: grafana-dashboard-scheduler
           readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/speedtest-exporter-dashboard
+          name: grafana-dashboard-speedtest-exporter-dashboard
+          readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/statefulset
           name: grafana-dashboard-statefulset
+          readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/traefik-dashboard
+          name: grafana-dashboard-traefik-dashboard
           readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/workload-total
           name: grafana-dashboard-workload-total
@@ -140,6 +158,9 @@ spec:
           name: grafana-dashboards
         name: grafana-dashboards
       - configMap:
+          name: grafana-dashboard-apc-ups-dashboard
+        name: grafana-dashboard-apc-ups-dashboard
+      - configMap:
           name: grafana-dashboard-apiserver
         name: grafana-dashboard-apiserver
       - configMap:
@@ -151,6 +172,12 @@ spec:
       - configMap:
           name: grafana-dashboard-coredns-dashboard
         name: grafana-dashboard-coredns-dashboard
+      - configMap:
+          name: grafana-dashboard-elasticsearch-dashboard
+        name: grafana-dashboard-elasticsearch-dashboard
+      - configMap:
+          name: grafana-dashboard-fluentd-dashboard
+        name: grafana-dashboard-fluentd-dashboard
       - configMap:
           name: grafana-dashboard-k8s-resources-cluster
         name: grafana-dashboard-k8s-resources-cluster
@@ -182,6 +209,9 @@ spec:
           name: grafana-dashboard-namespace-by-workload
         name: grafana-dashboard-namespace-by-workload
       - configMap:
+          name: grafana-dashboard-nginx-dashboard
+        name: grafana-dashboard-nginx-dashboard
+      - configMap:
           name: grafana-dashboard-node-cluster-rsrc-use
         name: grafana-dashboard-node-cluster-rsrc-use
       - configMap:
@@ -212,8 +242,14 @@ spec:
           name: grafana-dashboard-scheduler
         name: grafana-dashboard-scheduler
       - configMap:
+          name: grafana-dashboard-speedtest-exporter-dashboard
+        name: grafana-dashboard-speedtest-exporter-dashboard
+      - configMap:
           name: grafana-dashboard-statefulset
         name: grafana-dashboard-statefulset
+      - configMap:
+          name: grafana-dashboard-traefik-dashboard
+        name: grafana-dashboard-traefik-dashboard
       - configMap:
           name: grafana-dashboard-workload-total
         name: grafana-dashboard-workload-total

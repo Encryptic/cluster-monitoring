@@ -7,48 +7,48 @@
     {
       // After deployment, run the create_gmail_auth.sh script from scripts dir.
       name: 'smtpRelay',
-      enabled: false,
+      enabled: true,
       file: import 'modules/smtp_relay.jsonnet',
     },
     {
       name: 'armExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/arm_exporter.jsonnet',
     },
     {
       name: 'upsExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/ups_exporter.jsonnet',
     },
     {
       name: 'metallbExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/metallb.jsonnet',
     },
     {
       name: 'nginxExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/nginx.jsonnet',
     },
     {
       name: 'traefikExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/traefik.jsonnet',
     },
     {
       name: 'elasticExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/elasticsearch_exporter.jsonnet',
     },
     {
       name: 'speedtestExporter',
-      enabled: false,
+      enabled: true,
       file: import 'modules/speedtest_exporter.jsonnet',
     },
   ],
 
   k3s: {
-    enabled: false,
+    enabled: true,
     master_ip: ['192.168.1.15'],
   },
 
