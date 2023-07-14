@@ -1,0 +1,15 @@
+{{- if .Values.smtpRelay.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: smtp-server
+  name: smtp-server
+spec:
+  ports:
+  - name: smtp
+    port: 25
+    targetPort: smtp
+  selector:
+    run: smtp-server
+{{- end }}

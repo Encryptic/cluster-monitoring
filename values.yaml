@@ -1,0 +1,47 @@
+# Default values for cluster-monitoring.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+upsExporter:
+  enabled: false
+
+traefikExporter:
+  enabled: false
+
+speedTestExporter:
+  enabled: false
+
+smtpRelay:
+  enabled: false
+
+elasticExporter:
+  enabled: false
+
+armExporter:
+  enabled: true
+  image:
+    repository: carlosedp/arm_exporter
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 9243
+  resources:
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    requests:
+      cpu: 50m
+      memory: 50Mi
+
+metalLBExporter:
+  enabled: false
+  image:
+    repository: quay.io/prometheus-community/prometheus-metallb-exporter
+    tag: v0.3.0
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8080
+    targetPort: 8080
+    annotations: {}
+  resources: {}

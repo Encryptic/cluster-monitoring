@@ -1,0 +1,28 @@
+{{- if .Values.elasticExporter.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: elasticsearch
+  name: elasticsearch
+spec:
+  endpoints:
+  - interval: 30s
+    port: es-metrics
+    relabelings:
+    - action: replace
+      regex: (.*)
+      replacement: $1
+      sourceLabels:
+      - __meta_kubernetes_pod_node_name
+      targetLabel: instance
+    scheme: http
+    scrapeTimeout: 30s
+  jobLabel: elasticsearch-exporter
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  selector:
+    matchLabels:
+      k8s-app: elasticsearch-exporter
+{{- end }}

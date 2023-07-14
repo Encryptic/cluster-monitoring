@@ -1,0 +1,15 @@
+{{- if .Values.upsExporter.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: ups-exporter
+  name: ups-exporter
+spec:
+  clusterIP: None
+  ports:
+  - name: metrics
+    port: 9099
+    targetPort: 9099
+  selector: null
+{{- end }}

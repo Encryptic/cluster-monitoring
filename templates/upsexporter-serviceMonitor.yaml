@@ -1,0 +1,28 @@
+{{- if .Values.upsExporter.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: ups-exporter
+  name: ups-exporter
+spec:
+  endpoints:
+  - interval: 30s
+    port: metrics
+    relabelings:
+    - action: replace
+      regex: (.*)
+      replacement: $1
+      sourceLabels:
+      - __meta_kubernetes_pod_node_name
+      targetLabel: instance
+    scheme: http
+    scrapeTimeout: 30s
+  jobLabel: ups-exporter-exporter
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  selector:
+    matchLabels:
+      k8s-app: ups-exporter
+{{- end }}

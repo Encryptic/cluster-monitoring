@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMapList
+items:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: grafana-dashboard-apc-ups-dashboard
+  data:
+    apc-ups-dashboard.json: |-
+      {}
+

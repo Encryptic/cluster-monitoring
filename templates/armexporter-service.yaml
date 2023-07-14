@@ -1,0 +1,16 @@
+{{- if .Values.armExporter.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: arm-exporter
+  name: arm-exporter
+spec:
+  clusterIP: None
+  ports:
+  - name: https
+    port: {{ .Values.armExporter.service.port }}
+    targetPort: https
+  selector:
+    k8s-app: arm-exporter
+{{- end }}
